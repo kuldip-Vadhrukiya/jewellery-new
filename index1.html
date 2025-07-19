@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zarine Jewellery</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap">
+  <link rel="stylesheet" href="style1.css">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+
+</head>
+
+<body>
+
+
+  <!-- navigation Starting -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index1.html" style="color:#f5c518; text-decoration: none;">Zariné</a>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index1.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" onclick="toggleCategory(event)">Category</a>
+        <ul class="dropdown-menu">
+          <li><a href="earring.html">Earring</a></li>
+          <li><a href="pendant.html">Pendant</a></li>
+          <li><a href="rings.html">Rings</a></li>
+          <li><a href="chain.html">Chain</a></li>
+          <li><a href="bangles.html">Bangles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html" target="_blank">About Us </a></li>
+      <li><a href="contact.html" target="_blank">Contact  </a></li>
+    </ul>
+    <div class="actions">
+      
+
+      <div class="cart-wrapper">
+        <i class="fas fa-shopping-bag icon-btn" onclick="window.location.href='cart.html'"></i>
+        <span class="badge">3</span>
+      </div>
+
+      <button class="login-btn"><a href="login.html" target="_blank">Login</a></button>
+    </div>
+  </nav>
+  <script>
+    function toggleCategory(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.dropdown');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    });
+  </script>
+  <script>
+    function toggleCategory(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.dropdown');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+
+    window.addEventListener("click", () => {
+      document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    });
+  </script>
+  <!-- navigation Ending -->
+
+
+
+
+  <!-- slider Starting -->
+  <div class="slider-wrapper">
+    <div class="slider-track" id="sliderTrack">
+      <!-- Slide 1 -->
+      <div class="slide" style="background-image: url('slider-1.png');">
+        <div class="text-box animate__animated" id="slideText0">
+          <p class="sub-title">exclusive offer -20% off this week</p>
+          <h1>Necklace</h1>
+          <h2>22 Carat gold necklace for wedding</h2>
+          <p class="price">Starting at ₹75,999</p>
+          <a href="#" class="btn-type2">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('slider-2.jpg');">
+        <div class="text-box animate__animated" id="slideText1">
+          <p class="sub-title">exclusive offer -40% off this week</p>
+          <h1>Earrings and Pendant</h1>
+          <h2>Complete bridal set with white pearls</h2>
+          <p class="price">Starting at ₹89,499</p>
+          <a href="#" class="btn-type2">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('slider-3.jpg');">
+        <div class="text-box animate__animated" id="slideText2">
+          <p class="sub-title">exclusive offer -10% off this week</p>
+          <h1>Wedding Rings</h1>
+          <h2>Ashirwaad Special wedding rings for couples</h2>
+          <p class="price">Starting at ₹14,999</p>
+          <a href="#" class="btn-type2">Shop Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots" id="sliderDots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const sliderTrack = document.getElementById("sliderTrack");
+    const dots = document.querySelectorAll(".dot");
+
+    function animateText(n) {
+      const textBox = document.getElementById(`slideText${n}`);
+      textBox.classList.remove("animate__fadeInLeft");
+      void textBox.offsetWidth; // Force reflow
+      textBox.classList.add("animate__fadeInLeft");
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      sliderTrack.style.transform = `translateX(-${100 * currentSlide}vw)`;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[n].classList.add("active");
+
+      animateText(n);
+    }
+
+    // Auto slider every 3 seconds
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 3000);
+
+    // Initial run
+    goToSlide(0);
+  </script>
+  <!-- slider Ending -->
+
+
+
+  <!-- Featured Product-Box Starting -->
+  <section style="background-color:#111;padding:60px 20px;font-family:'Open Sans',sans-serif;">
+    <h2 style="text-align:center;color:#f5c518;font-size:30px;margin-bottom:10px;font-family:'Playfair Display',serif;">
+      FEATURED PRODUCTS</h2>
+    <p style="text-align:center;color:#ccc;margin-bottom:40px;">Jewellery Design Showcase</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1300px;margin:auto;">
+
+      <!-- BOX 1 -->
+      <div class="product-box">
+        <div class="product-image-box" style="height: 400px;">
+          <img src="diamond ring.png" alt="Diamond Ring">
+        </div>
+        <div class="product-content">
+          <h4 class="product-title">Diamond Ring</h4>
+          <p class="product-price">₹19,999</p>
+          <div class="product-actions">
+            <a href="#">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOX 2 -->
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <div style="display:flex;gap:15px;">
+          <div class="product-box" style="flex:1;">
+            <div class="product-image-box" style="height: 150px;">
+              <img src="Bridal Necklace.png" alt="Bridal Necklace">
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Bridal Necklace</h4>
+              <p class="product-price">₹35,499</p>
+              <div class="product-actions">
+                <a href="#">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-box" style="flex:1;">
+            <div class="product-image-box" style="height: 150px;">
+              <img src="Gold Bangle.png" alt="Gold Bangle">
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Gold Bangle</h4>
+              <p class="product-price">₹22,999</p>
+              <div class="product-actions">
+                <a href="#">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-box">
+          <div class="product-image-box" style="height: 180px;">
+            <img src="Gold Earrings.png" alt="Gold Earrings">
+          </div>
+          <div class="product-content">
+            <h4 class="product-title">Gold Earrings</h4>
+            <p class="product-price">₹9,499</p>
+            <div class="product-actions">
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOX 3 -->
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <div style="display:flex;gap:15px;">
+          <div class="product-box" style="flex:1;">
+            <div class="product-image-box" style="height: 150px;">
+              <img src="Pear Ring.png" alt="Pear Ring">
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Pear Ring</h4>
+              <p class="product-price">₹13,999</p>
+              <div class="product-actions">
+                <a href="#">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-box" style="flex:1;">
+            <div class="product-image-box" style="height: 150px;">
+              <img src="designer ring.png" alt="Designer Ring">
+            </div>
+            <div class="product-content">
+              <h4 class="product-title">Designer Ring</h4>
+              <p class="product-price">₹17,799</p>
+              <div class="product-actions">
+                <a href="#">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-box">
+          <div class="product-image-box" style="height: 180px;">
+            <img src="diamond crown.png" alt="Diamond Crown">
+          </div>
+          <div class="product-content">
+            <h4 class="product-title">Diamond Crown</h4>
+            <p class="product-price">₹29,499</p>
+            <div class="product-actions">
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOX 4 -->
+      <div class="product-box">
+        <div class="product-image-box" style="height: 400px;">
+          <img src="Gold Choker Necklace.png" alt="Gold Choker" style="background-position: center;">
+        </div>
+        <div class="product-content">
+          <h4 class="product-title">Gold Choker</h4>
+          <p class="product-price">₹39,999</p>
+          <div class="product-actions">
+            <a href="#">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Featured Product-Box Ending -->
+
+
+
+  <!-- 3 product Starting -->
+  <div class="banner-frame">
+
+    <!-- Ring -->
+    <div class="banner">
+      <img src="ring.jpg" alt="Gold Ring">
+      <div class="holder">
+        <h2><span>Timeless Beauty</span><strong>GOLD RING</strong></h2>
+        <a class="btn-shop" href="rings.html">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Necklace -->
+    <div class="banner">
+      <img src="necklace.jpg" alt="Necklace">
+      <div class="holder">
+        <h2><span>Royal Collection</span><strong>BRIDAL BANGLES</strong></h2>
+        <a class="btn-shop" href="bangles.html">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Earrings -->
+    <div class="banner">
+      <img src="jhumka_2.jpg" alt="Jhumka Earrings">
+      <div class="holder">
+        <h2><span>Ethnic Elegance</span><strong>JHUMKA EARRINGS</strong></h2>
+        <a class="btn-shop" href="earring.html">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- 3 product Ending -->
+
+
+  <!-- Silver Golden Platinum Starting -->
+  <section class="mt-producttabs">
+    <ul class="producttabs">
+      <li><a href="#silver" class="active">Silver</a></li>
+      <li><a href="#golden">Golden</a></li>
+      <li><a href="#platinum">Platinum</a></li>
+    </ul>
+
+    <div id="silver" class="tab-content active">
+      <ul class="mt-productrow">
+        <!-- 8 Silver Products -->
+        <li>
+          <div class="mt-product1"><img src="Sterling Silver Studs.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">	Sterling Silver Studs</a></strong><span
+                class="price">₹1,499</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Silver Heart Pendant.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Silver Heart Pendant</a></strong><span
+                class="price">₹1,899</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Oxidized Jhumka.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Oxidized Jhumka Earrings</a></strong><span
+                class="price">₹2,499</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Silver Charm Bracelet.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Silver Charm Bracelet</a></strong><span
+                class="price">₹1,799</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Engraved Silver Ring.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">	Engraved Silver Ring</a></strong><span
+                class="price">₹999</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="silver kada.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">	Antique Silver Kada</a></strong><span
+                class="price">₹2,999</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="silver ring.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">	925 Solitaire Ring</a></strong><span
+                class="price">₹2,299</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="silver choker necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Filigree Silver Choker</a></strong><span
+                class="price">₹3,499</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="golden" class="tab-content">
+      <ul class="mt-productrow">
+        <!-- 8 Golden Products -->
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <!-- Repeat 7 more -->
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="Gold Choker Necklace.png" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="platinum" class="tab-content">
+      <ul class="mt-productrow">
+        <!-- 8 Platinum Products -->
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <!-- Repeat 7 more -->
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="mt-product1"><img src="ring.jpg" alt="product image">
+            <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                class="price">₹0.00</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    const tabs = document.querySelectorAll('.producttabs a');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function (e) {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        this.classList.add('active');
+        document.querySelector(this.getAttribute('href')).classList.add('active');
+      });
+    });
+  </script>
+  <!-- Silver Golden Platinum Ending -->
+
+
+
+  <!-- foote Starting -->
+  <footer class="footer">
+    <div>
+      <h4>Customer Care</h4>
+      <p>Shipping & Returns</p>
+      <p>Track Your Order</p>
+      <p>FAQs</p>
+    </div>
+    <div>
+      <h4>About Zayan</h4>
+      <p>Our Story</p>
+      <p>Careers</p>
+      <p>Blog</p>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <p>Email: support@zayanjewels.com</p>
+      <p>Phone: +91 98765 43210</p>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <p>Instagram | Facebook | YouTube</p>
+    </div>
+  </footer>
+  <!-- foote Ending -->
+</body>
+
+</html>

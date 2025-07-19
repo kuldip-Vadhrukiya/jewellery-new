@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us | Zariné</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Starting */
+    .navbar {
+      background: #111;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 10px rgba(238, 255, 0, 0.08);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    #menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    #menu li {
+      position: relative;
+    }
+
+    #menu li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    #menu li a:hover {
+      color: #f5c518;
+    }
+
+    .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1a1a1a;
+      min-width: 160px;
+      border-radius: 5px;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      list-style: none;
+      pointer-events: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu li {
+      padding: 0 20px;
+    }
+
+    .dropdown-menu li a {
+      color: #f5c518;
+      display: block;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #fff;
+    }
+
+    .dropdown.open .dropdown-menu {
+      display: block;
+    }
+
+    .navbar .actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .icon-btn {
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .icon-btn:hover {
+      color: #f5c518;
+    }
+
+    .badge {
+      background: red;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+
+    .cart-wrapper {
+      position: relative;
+    }
+
+    .login-btn {
+      border: 1px solid #ffffff;
+      color: black;
+      background: none;
+      padding: 5px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      background-color: #f5c518;
+    }
+
+    .login-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* Navigation End */
+
+
+    /* Background Image Slider */
+    .slider-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      animation: slideBg 18s infinite ease-in-out;
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px) brightness(0.4);
+    }
+
+    @keyframes slideBg {
+      0% {
+        background-image: url('slider-3.jpg');
+      }
+
+      33% {
+        background-image: url('slider-3.jpg');
+      }
+
+      66% {
+        background-image: url('slider-3.jpg');
+      }
+
+      100% {
+        background-image: url('slider-3.jpg');
+      }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px rgba(245, 197, 24, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #f5c518;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 12px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #f5c518;
+      box-shadow: 0 0 10px #f5c51850;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 14px;
+      left: 12px;
+      color: #aaa;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      pointer-events: none;
+      background: #1a1a1a;
+      padding: 0 4px;
+    }
+
+    .form-group input:focus+label,
+    .form-group input:not(:placeholder-shown)+label,
+    .form-group textarea:focus+label,
+    .form-group textarea:not(:placeholder-shown)+label {
+      top: -10px;
+      left: 10px;
+      font-size: 0.75rem;
+      color: #f5c518;
+    }
+
+    button {
+      background: #f5c518;
+      color: #111;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #fff;
+      color: #111;
+      box-shadow: 0 0 15px #f5c51880;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 50px 20px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navigation Starting -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index1.html" style="color:#f5c518; text-decoration: none;">Zariné</a>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index1.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" onclick="toggleCategory(event)">Category</a>
+        <ul class="dropdown-menu">
+          <li><a href="earring.html">Earring</a></li>
+          <li><a href="pendant.html">Pendant</a></li>
+          <li><a href="rings.html">Rings</a></li>
+          <li><a href="chain.html">Chain</a></li>
+          <li><a href="bangles.html">Bangles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html" target="_blank">About Us </a></li>
+      <li><a href="contact.html" target="_blank">Contact </a></li>
+    </ul>
+    <div class="actions">
+      <div class="cart-wrapper">
+        <i class="fas fa-shopping-bag icon-btn" onclick="window.location.href='cart.html'"></i>
+        <span class="badge">3</span>
+      </div>
+      <button class="login-btn"><a href="login.html" target="_blank">Login</a></button>
+    </div>
+  </nav>
+  <script>
+    function toggleCategory(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.dropdown');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    });
+  </script>
+  <!-- navigation Ending -->
+
+
+  <!-- 🔁 Sliding Background -->
+  <div class="slider-bg"></div>
+
+  <!-- 💌 Contact Form -->
+  <div class="container" data-aos="zoom-in">
+    <h1>Contact Us</h1>
+    <p class="subtitle">Let us know how we can help you</p>
+
+    <form action="#" method="post">
+      <div class="form-group">
+        <input type="text" name="name" placeholder=" " required />
+        <label>Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder=" " required />
+        <label>Your Email</label>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder=" " required></textarea>
+        <label>Your Message</label>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+</body>
+
+</html>

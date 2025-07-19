@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zariné Navbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .navbar {
+      background: #111;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 10px rgba(238, 255, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo a {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f5c518;
+      text-decoration: none;
+    }
+
+    #menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    #menu li {
+      position: relative;
+    }
+
+    #menu li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    #menu li a:hover {
+      color: #f5c518;
+    }
+
+    /* Dropdown */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: #1a1a1a;
+      top: 100%;
+      left: 0;
+      padding: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+    }
+
+    .dropdown.open .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      padding: 5px 20px;
+    }
+
+    .dropdown-menu li a {
+      color: #f5c518;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #fff;
+    }
+
+    .actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .search-box {
+      display: flex;
+      border: 1px solid #444;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .search-box input {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      width: 150px;
+    }
+
+    .search-box button {
+      background: none;
+      border: none;
+      color: #f5c518;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .icon-btn {
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .icon-btn:hover {
+      color: #f5c518;
+    }
+
+    .cart-wrapper {
+      position: relative;
+    }
+
+    .cart-wrapper i {
+      font-size: 1.3rem;
+    }
+
+    .badge {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: red;
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      pointer-events: none; /* 🔴 Prevent badge from being clickable */
+    }
+
+    .login-btn a {
+      background: #f5c518;
+      color: #111;
+      padding: 6px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .login-btn a:hover {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar Starts -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index1.html">Zariné</a>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index1.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" onclick="toggleCategory(event)">Category</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Earring</a></li>
+          <li><a href="#">Pendant</a></li>
+          <li><a href="#">Rings</a></li>
+          <li><a href="#">Chain</a></li>
+          <li><a href="#">Bangles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html" target="_blank">About Us</a></li>
+      <li><a href="contact.html" target="_blank">Contact</a></li>
+    </ul>
+
+    <div class="actions">
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+
+      <i class="far fa-heart icon-btn"></i>
+
+      <!-- ✅ Only icon triggers navigation -->
+      <div class="cart-wrapper">
+        <i class="fas fa-shopping-bag icon-btn" onclick="window.location.href='cart.html'"></i>
+        <span class="badge">3</span>
+      </div>
+
+      <button class="login-btn">
+        <a href="login.html" target="_blank">Login</a>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ✅ Dropdown Script -->
+  <script>
+    function toggleCategory(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.dropdown');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+
+    window.addEventListener("click", () => {
+      document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    });
+  </script>
+
+</body>
+</html>

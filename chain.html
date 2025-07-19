@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chains | Zariné</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+body,
+    html {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Starting */
+    .navbar {
+      background: #111;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 10px rgba(238, 255, 0, 0.08);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    #menu {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    #menu li {
+      position: relative;
+    }
+
+    #menu li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    #menu li a:hover {
+      color: #f5c518;
+    }
+
+    .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1a1a1a;
+      min-width: 160px;
+      border-radius: 5px;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      list-style: none;
+      pointer-events: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu li {
+      padding: 0 20px;
+    }
+
+    .dropdown-menu li a {
+      color: #f5c518;
+      display: block;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #fff;
+    }
+
+    .dropdown.open .dropdown-menu {
+      display: block;
+    }
+
+    .navbar .actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .icon-btn {
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .icon-btn:hover {
+      color: #f5c518;
+    }
+
+    .badge {
+      background: red;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+
+    .cart-wrapper {
+      position: relative;
+    }
+
+    .login-btn {
+      border: 1px solid #ffffff;
+      color: black;
+      background: none;
+      padding: 5px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      background-color: #f5c518;
+    }
+
+    .login-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* Navigation End */
+    h1 {
+      text-align: center;
+      color: #f5c518;
+      margin: 40px 0 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(245, 197, 24, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(245, 197, 24, 0.4);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      color: #f5c518;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .product-info span {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      background: #f5c518;
+      color: #111;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- navigation Starting -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index1.html" style="color:#f5c518; text-decoration: none;">Zariné</a>
+    </div>
+
+    <ul id="menu">
+      <li><a href="index1.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" onclick="toggleCategory(event)">Category</a>
+        <ul class="dropdown-menu">
+          <li><a href="earring.html">Earring</a></li>
+          <li><a href="pendant.html">Pendant</a></li>
+          <li><a href="rings.html">Rings</a></li>
+          <li><a href="chain.html">Chain</a></li>
+          <li><a href="bangles.html">Bangles</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html" target="_blank">About Us </a></li>
+      <li><a href="contact.html" target="_blank">Contact </a></li>
+    </ul>
+    <div class="actions">
+      <div class="cart-wrapper">
+                <i class="fas fa-shopping-bag icon-btn" onclick="window.location.href='cart.html'"></i>
+        <span class="badge">3</span>
+      </div>
+      <button class="login-btn"><a href="login.html" target="_blank">Login</a></button>
+    </div>
+  </nav>
+  <script>
+    function toggleCategory(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const dropdown = event.target.closest('.dropdown');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.toggle('open');
+    }
+
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+    });
+  </script>
+  <!-- navigation Ending -->
+  <h1>Gold Chain Collection</h1>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="Gold Choker Necklace.png" alt="Chain 1" />
+      <div class="product-info">
+        <h3>Box Link Chain</h3>
+        <p>Strong and stylish box pattern in 22K gold.</p>
+        <span>₹30,999</span>
+        <button class="add-to-cart" onclick="addToCart('Box Link Chain', 30999)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Gold Choker Necklace.png" alt="Chain 2" />
+      <div class="product-info">
+        <h3>Twisted Rope Chain</h3>
+        <p>Elegant spiral design for both men and women.</p>
+        <span>₹26,750</span>
+        <button class="add-to-cart" onclick="addToCart('Twisted Rope Chain', 26750)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Gold Choker Necklace.png" alt="Chain 3" />
+      <div class="product-info">
+        <h3>Figaro Chain</h3>
+        <p>Classic alternating pattern chain design.</p>
+        <span>₹22,199</span>
+        <button class="add-to-cart" onclick="addToCart('Figaro Chain', 22199)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="Gold Choker Necklace.png" alt="Chain 4" />
+      <div class="product-info">
+        <h3>Flat Curb Chain</h3>
+        <p>Premium shine with a flat stylish link.</p>
+        <span>₹28,499</span>
+        <button class="add-to-cart" onclick="addToCart('Flat Curb Chain', 28499)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const product = { name, price, quantity: 1 };
+      const existing = cart.find(p => p.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`Added to Cart: ${name}`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zayan Product Tabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: #111;
+            color: #fff;
+        }
+
+        .mt-producttabs {
+            padding: 50px 20px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .producttabs {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        .producttabs li a {
+            text-decoration: none;
+            color: #f5c518;
+            border: 2px solid #f5c518;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .producttabs li a.active,
+        .producttabs li a:hover {
+            background: #f5c518;
+            color: #111;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mt-productrow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .mt-product1 {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mt-product1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 197, 24, 0.3);
+        }
+
+        .mt-product1 img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #222;
+        }
+
+        .txt {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .txt .title a {
+            color: #f5c518;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .txt .title a:hover {
+            color: #fff;
+        }
+
+        .price {
+            display: block;
+            color: #f5c518;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+@media (max-width: 1024px) {
+  .mt-productrow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mt-productrow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .mt-productrow {
+    grid-template-columns: 1fr;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <section class="mt-producttabs">
+        <ul class="producttabs">
+            <li><a href="#silver" class="active">Silver</a></li>
+            <li><a href="#golden">Golden</a></li>
+            <li><a href="#platinum">Platinum</a></li>
+        </ul>
+
+        <div id="silver" class="tab-content active">
+            <ul class="mt-productrow">
+                <!-- 8 Silver Products -->
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="necklace.jpg" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Silver Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="golden" class="tab-content">
+            <ul class="mt-productrow">
+                <!-- 8 Golden Products -->
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <!-- Repeat 7 more -->
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Golden Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="platinum" class="tab-content">
+            <ul class="mt-productrow">
+                <!-- 8 Platinum Products -->
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <!-- Repeat 7 more -->
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="mt-product1"><img src="" alt="product image">
+                        <div class="txt"><strong class="title"><a href="#">Platinum Product</a></strong><span
+                                class="price">₹0.00</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        const tabs = document.querySelectorAll('.producttabs a');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                this.classList.add('active');
+                document.querySelector(this.getAttribute('href')).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

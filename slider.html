@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animated Auto Slider</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; }
+
+    .slider-wrapper {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slide {
+      width: 100vw;
+      height: 500px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 50px;
+    }
+
+    .text-box {
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      color: #f5c518;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 5px 0;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #f5c518;
+      margin-bottom: 20px;
+    }
+
+    .btn-type2 {
+      background-color: #f5c518;
+      color: #111;
+      padding: 10px 25px;
+      border: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-type2:hover {
+      background-color: #d4a017;
+      color: #fff;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #777;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #f5c518;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider-wrapper">
+  <div class="slider-track" id="sliderTrack">
+    <!-- Slide 1 -->
+    <div class="slide" style="background-image: url('1.png');">
+      <div class="text-box animate__animated" id="slideText0">
+        <p class="sub-title">exclusive offer -20% off this week</p>
+        <h1>Necklace</h1>
+        <h2>22 Carat gold necklace for wedding</h2>
+        <p class="price">Starting at ₹75,999</p>
+        <a href="#" class="btn-type2">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide" style="background-image: url('2.jpg');">
+      <div class="text-box animate__animated" id="slideText1">
+        <p class="sub-title">exclusive offer -40% off this week</p>
+        <h1>Earrings and Pendant</h1>
+        <h2>Complete bridal set with white pearls</h2>
+        <p class="price">Starting at ₹89,499</p>
+        <a href="#" class="btn-type2">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide" style="background-image: url('3.jpg');">
+      <div class="text-box animate__animated" id="slideText2">
+        <p class="sub-title">exclusive offer -10% off this week</p>
+        <h1>Wedding Rings</h1>
+        <h2>Ashirwaad Special wedding rings for couples</h2>
+        <p class="price">Starting at ₹14,999</p>
+        <a href="#" class="btn-type2">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots" id="sliderDots">
+    <div class="dot active" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const totalSlides = 3;
+  const sliderTrack = document.getElementById("sliderTrack");
+  const dots = document.querySelectorAll(".dot");
+
+  function animateText(n) {
+    const textBox = document.getElementById(`slideText${n}`);
+    textBox.classList.remove("animate__fadeInLeft");
+    void textBox.offsetWidth; // Force reflow
+    textBox.classList.add("animate__fadeInLeft");
+  }
+
+  function goToSlide(n) {
+    currentSlide = n;
+    sliderTrack.style.transform = `translateX(-${100 * currentSlide}vw)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[n].classList.add("active");
+
+    animateText(n);
+  }
+
+  // Auto slider every 3 seconds
+  setInterval(() => {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }, 3000);
+
+  // Initial run
+  goToSlide(0);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login / Register | Zariné</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .slider-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      animation: slideBg 18s infinite ease-in-out;
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px) brightness(0.4);
+    }
+    @keyframes slideBg {
+      0%   { background-image: url('slider-1.png'); }
+      33%  { background-image: url('slider-1.png'); }
+      66%  { background-image: url('slider-1.png'); }
+      100% { background-image: url('slider-1.png'); }
+    }
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      padding: 40px 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(245, 197, 24, 0.15);
+      color: #fff;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #f5c518;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group {
+      position: relative;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 12px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #f5c518;
+      box-shadow: 0 0 10px #f5c51850;
+    }
+    .form-group label {
+      position: absolute;
+      top: 14px;
+      left: 12px;
+      color: #aaa;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      pointer-events: none;
+      background: #1a1a1a;
+      padding: 0 4px;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 0.75rem;
+      color: #f5c518;
+    }
+    button {
+      background: #f5c518;
+      color: #111;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #fff;
+      color: #111;
+      box-shadow: 0 0 15px #f5c51880;
+    }
+    .auth-switch {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .auth-switch a {
+      color: #f5c518;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .container {
+        margin: 50px 20px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-bg"></div>
+
+  <!-- 🔐 Login Box -->
+  <div class="container" id="login-box" data-aos="fade-in">
+    <h1>Login</h1>
+    <p class="subtitle">Access your account</p>
+    <form>
+      <div class="form-group">
+        <input type="email" name="email" placeholder=" " required />
+        <label>Email Address</label>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder=" " required />
+        <label>Password</label>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="auth-switch">
+      <p>Don't have an account? <a onclick="toggleForm('register')">Register</a></p>
+    </div>
+  </div>
+
+  <!-- 🆕 Register Box -->
+  <div class="container" id="register-box" style="display:none" data-aos="fade-in">
+    <h1>Register</h1>
+    <p class="subtitle">Create your account</p>
+    <form>
+      <div class="form-group">
+        <input type="text" name="name" placeholder=" " required />
+        <label>Full Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder=" " required />
+        <label>Email Address</label>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder=" " required />
+        <label>Create Password</label>
+      </div>
+      <div class="form-group">
+        <input type="password" name="confirm" placeholder=" " required />
+        <label>Confirm Password</label>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <div class="auth-switch">
+      <p>Already have an account? <a onclick="toggleForm('login')">Login</a></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>
+    function toggleForm(type) {
+      const login = document.getElementById('login-box');
+      const register = document.getElementById('register-box');
+      if (type === 'register') {
+        login.style.display = 'none';
+        register.style.display = 'block';
+      } else {
+        login.style.display = 'block';
+        register.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

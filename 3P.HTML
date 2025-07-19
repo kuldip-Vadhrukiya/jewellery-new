@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jewelry Showcase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    .banner-frame {
+      display: flex;
+      gap: 20px;
+      padding: 40px;
+      justify-content: center;
+    }
+
+    .banner-frame .banner {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    .banner:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .holder {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      border-radius: 8px;
+    }
+
+    .holder h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .holder h2 span {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #ffd700;
+      letter-spacing: 1px;
+    }
+
+    .holder h2 strong {
+      display: block;
+      font-size: 20px;
+      margin-top: 4px;
+      color: #fff;
+    }
+
+    .btn-shop {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: 1px solid #ffd700;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: 0.3s ease;
+    }
+
+    .btn-shop:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner-frame">
+
+    <!-- Ring -->
+    <div class="banner">
+      <img src="ring.jpg" alt="Gold Ring">
+      <div class="holder">
+        <h2><span>Timeless Beauty</span><strong>GOLD RING</strong></h2>
+        <a class="btn-shop" href="#">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Necklace -->
+    <div class="banner">
+      <img src="necklace.jpg" alt="Necklace">
+      <div class="holder">
+        <h2><span>Royal Collection</span><strong>BRIDAL NECKLACE</strong></h2>
+        <a class="btn-shop" href="#">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Earrings -->
+    <div class="banner">
+      <img src="jhumka_2.jpg" alt="Jhumka Earrings">
+      <div class="holder">
+        <h2><span>Ethnic Elegance</span><strong>JHUMKA EARRINGS</strong></h2>
+        <a class="btn-shop" href="#">VIEW <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zayan Product Tabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: #111;
+            color: #fff;
+        }
+
+        .mt-producttabs {
+            padding: 50px 20px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .producttabs {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 0;
+        }
+
+        .producttabs li a {
+            text-decoration: none;
+            color: #f5c518;
+            border: 2px solid #f5c518;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .producttabs li a.active,
+        .producttabs li a:hover {
+            background: #f5c518;
+            color: #111;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mt-productrow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+         .mt-product1 {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+  transition: border 0.4s ease, box-shadow 0.4s ease;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+        .mt-product1:hover {
+  border: 2px solid #f5c518;
+  box-shadow: 0 0 8px rgba(245, 197, 24, 0.4);
+}
+
+        .mt-product1::before {
+  display: none;
+}
+
+
+       .mt-product1 img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: #222;
+}
+
+.txt {
+  padding: 10px 12px;
+  text-align: center;
+}
+
+        .txt .title a {
+  color: #f5c518;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.price {
+  display: block;
+  color: #f5c518;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 5px;
+  min-height: 38px;
+  overflow: hidden;
+}
+
+       .btn-cart {
+  padding: 6px 14px;
+  background: #f5c518;
+  color: #111;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+        .btn-cart:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 1024px) {
+            .mt-productrow {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mt-productrow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mt-productrow {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<section class="mt-producttabs">
+    <ul class="producttabs">
+        <li><a href="#silver" class="active">Silver</a></li>
+        <li><a href="#golden">Golden</a></li>
+        <li><a href="#platinum">Platinum</a></li>
+    </ul>
+
+    <div id="silver" class="tab-content active">
+        <ul class="mt-productrow">
+            <li>
+                <div class="mt-product1">
+                    <img src="Gold Earrings.png" alt="product image">
+                    <div class="txt">
+                        <strong class="title"><a href="#">Sterling Silver Studs</a></strong>
+                        <p class="desc">Elegant silver earrings with CZ stones</p>
+                        <span class="price">₹1,499</span>
+                        <button class="btn-cart" onclick="addToCart('Sterling Silver Studs', 1499)">Add to Cart</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="mt-product1">
+                    <img src="Gold Earrings.png" alt="product image">
+                    <div class="txt">
+                        <strong class="title"><a href="#">Silver Heart Pendant</a></strong>
+                        <p class="desc">Romantic silver pendant with heart </p>
+                        <span class="price">₹1,899</span>
+                        <button class="btn-cart" onclick="addToCart('Silver Heart Pendant', 1899)">Add to Cart</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="golden" class="tab-content">
+        <ul class="mt-productrow">
+            <li>
+                <div class="mt-product1">
+                    <img src="golden1.jpg" alt="product image">
+                    <div class="txt">
+                        <strong class="title"><a href="#">Golden Necklace</a></strong>
+                        <p class="desc">22K gold necklace with traditional motifs</p>
+                        <span class="price">₹9,999</span>
+                        <button class="btn-cart" onclick="addToCart('Golden Necklace', 9999)">Add to Cart</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="platinum" class="tab-content">
+        <ul class="mt-productrow">
+            <li>
+                <div class="mt-product1">
+                    <img src="platinum1.jpg" alt="product image">
+                    <div class="txt">
+                        <strong class="title"><a href="#">Platinum Band</a></strong>
+                        <p class="desc">Sleek platinum ring for men and women</p>
+                        <span class="price">₹12,499</span>
+                        <button class="btn-cart" onclick="addToCart('Platinum Band', 12499)">Add to Cart</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script>
+    const tabs = document.querySelectorAll('.producttabs a');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                this.classList.add('active');
+                target.classList.add('active');
+            }
+        });
+    });
+
+    function addToCart(name, price) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const product = { name, price, quantity: 1 };
+        const existing = cart.find(p => p.name === name);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`Added to Cart: ${name}`);
+    }
+</script>
+</body>
+</html>

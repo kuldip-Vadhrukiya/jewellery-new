@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Featured Jewelry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      text-align: center;
+      color: #f5c518;
+      margin-bottom: 40px;
+    }
+
+    .featured-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .product-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(245, 197, 24, 0.3);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #fff;
+      margin: 10px 0 5px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #ccc;
+      margin: 0 0 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #f5c518;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #f5c518;
+      color: #f5c518;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f5c518;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="section-title">Featured Jewelry</h2>
+
+  <div class="featured-products">
+  <!-- Product 1 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="ring1.jpg" alt="Gold Ring">
+    </div>
+    <div class="product-info">
+      <h3>Elegant Gold Ring</h3>
+      <p>22K | Handcrafted | Shine for Eternity</p>
+      <div class="price">₹15,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="necklace.jpg" alt="Necklace">
+    </div>
+    <div class="product-info">
+      <h3>Bridal Necklace Set</h3>
+      <p>Traditional Design with Modern Grace</p>
+      <div class="price">₹45,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="couple-rings.jpg" alt="Couple Rings">
+    </div>
+    <div class="product-info">
+      <h3>Couple Rings</h3>
+      <p>Perfect Pair for Perfect Bond</p>
+      <div class="price">₹28,499</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="bracelet.jpg" alt="Bracelet">
+    </div>
+    <div class="product-info">
+      <h3>Diamond Bracelet</h3>
+      <p>Minimalist Sparkle Collection</p>
+      <div class="price">₹19,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="earrings.jpg" alt="Earrings">
+    </div>
+    <div class="product-info">
+      <h3>Gold Earrings</h3>
+      <p>Modern meets Tradition</p>
+      <div class="price">₹13,499</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="chain.jpg" alt="Gold Chain">
+    </div>
+    <div class="product-info">
+      <h3>Men's Gold Chain</h3>
+      <p>Bold. Pure. Statement.</p>
+      <div class="price">₹38,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="mangalsutra.jpg" alt="Mangalsutra">
+    </div>
+    <div class="product-info">
+      <h3>Mangalsutra</h3>
+      <p>Symbol of Bond & Blessing</p>
+      <div class="price">₹17,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="choker.jpg" alt="Choker Set">
+    </div>
+    <div class="product-info">
+      <h3>Royal Choker Set</h3>
+      <p>Inspired by Heritage Designs</p>
+      <div class="price">₹59,999</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="pendant.jpg" alt="Pendant">
+    </div>
+    <div class="product-info">
+      <h3>Gold Pendant</h3>
+      <p>Everyday Elegance with a Spark</p>
+      <div class="price">₹11,499</div>
+      <a href="#" class="btn">View Details</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
